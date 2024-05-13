@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ABPBackendTZ.Models;
+namespace MTRPZ4.Models;
 
 public class ButtonColor
 {

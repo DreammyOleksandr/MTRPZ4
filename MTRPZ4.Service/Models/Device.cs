@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ABPBackendTZ.Models;
+namespace MTRPZ4.Models;
 
 public class Device
 {
@@ -9,8 +9,7 @@ public class Device
     public int? ButtonColorId { get; set; }
     [ForeignKey("ButtonColorId")]
     public ButtonColor? ButtonColor { get; set; }
-    public int? PriceToShowId { get; set; }
-    [ForeignKey("PriceToShowId")]
+    public int? PriceId { get; set; }
+    [ForeignKey("PriceId")]
     public Price? Price { get; set; }
-    
 }
