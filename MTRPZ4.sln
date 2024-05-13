@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTRPZ4.Service", "MTRPZ4.Service\MTRPZ4.Service.csproj", "{04DFAF3A-F16D-4B39-A5F9-F72F2A1AA213}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTRPZ4.Service.Tests", "MTRPZ4.Service.Tests\MTRPZ4.Service.Tests.csproj", "{0F781296-C5DB-4CDD-89B7-08CF27D29547}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{04DFAF3A-F16D-4B39-A5F9-F72F2A1AA213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04DFAF3A-F16D-4B39-A5F9-F72F2A1AA213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04DFAF3A-F16D-4B39-A5F9-F72F2A1AA213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F781296-C5DB-4CDD-89B7-08CF27D29547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F781296-C5DB-4CDD-89B7-08CF27D29547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F781296-C5DB-4CDD-89B7-08CF27D29547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F781296-C5DB-4CDD-89B7-08CF27D29547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
