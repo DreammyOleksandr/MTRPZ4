@@ -1,8 +1,8 @@
-using ABPBackendTZ.Models;
+using MTRPZ4.Models;
 
-namespace ABPBackendTZ;
+namespace MTRPZ4;
 
-public sealed class DataStorage
+public sealed class DataStorage : IDataStorage
 {
     public List<Device> Devices = new();
     public readonly List<ButtonColor> ButtonColors = new()
@@ -47,4 +47,8 @@ public sealed class DataStorage
             Value = 5M,
         }
     };
+    
+    public List<Device> GetDevices() => Devices;
+    public List<Price> GetPrices() => Prices;
+    public List<ButtonColor> GetButtonColors() => ButtonColors;
 }
