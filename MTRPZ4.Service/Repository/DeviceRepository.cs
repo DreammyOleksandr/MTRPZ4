@@ -1,18 +1,23 @@
-using ABPBackendTZ.Models;
-using ABPBackendTZ.Repository.IRepository;
+using MTRPZ4.Models;
+using MTRPZ4.Repository.IRepository;
 
-namespace ABPBackendTZ.Repository;
+namespace MTRPZ4.Repository;
 
 public class DeviceRepository : IDeviceRepository
 {
-    private readonly DataStorage _data;
+    private readonly IDataStorage _data;
 
-    public async Task<Device> GetByToken(string token) => _data.Devices.Find(x => string.Equals(x.Token, token));
-    public async Task<IEnumerable<Device>> GetAll() => _data.Devices;
-    public async Task Add(Device device) => _data.Devices.Add(device);
+    public DeviceRepository(IDataStorage data)
+    {
+        _data = data;
+    }
+
+    public async Task<Device> GetByToken(string token) =>  _data.GetDevices().Find(x => string.Equals(x.Token, token));
+    public async Task<IEnumerable<Device>> GetAll() => _data.GetDevices();
+    public async Task Add(Device device) => _data.GetDevices().Add(device);
     public async Task Update(Device device)
     {
-        var result = _data.Devices.FirstOrDefault(x => x.Token == device.Token);
+        var result = _data.GetDevices().FirstOrDefault(x => x.Token == device.Token);
         if (result is {})
         {
             result = device;

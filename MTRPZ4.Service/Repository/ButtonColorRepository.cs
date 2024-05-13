@@ -1,12 +1,17 @@
-using ABPBackendTZ.Models;
-using ABPBackendTZ.Repository.IRepository;
+using MTRPZ4.Models;
+using MTRPZ4.Repository.IRepository;
 
-namespace ABPBackendTZ.Repository;
+namespace MTRPZ4.Repository;
 
 public class ButtonColorRepository : IButtonColorRepository
 {
-    private readonly DataStorage _data = new();
+    private readonly IDataStorage _data;
 
-    public async Task<ButtonColor> GetById(int? id) => _data.ButtonColors.Find(x => x.Id == id);
-    public async Task<IEnumerable<ButtonColor>> GetAll() => _data.ButtonColors;
+    public ButtonColorRepository(IDataStorage data)
+    {
+        _data = data;
+    }
+
+    public async Task<ButtonColor> GetById(int? id) => _data.GetButtonColors().Find(x => x.Id == id);
+    public async Task<IEnumerable<ButtonColor>> GetAll() => _data.GetButtonColors();
 }

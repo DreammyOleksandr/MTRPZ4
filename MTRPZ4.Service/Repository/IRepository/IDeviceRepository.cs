@@ -1,6 +1,6 @@
-using ABPBackendTZ.Models;
+using MTRPZ4.Models;
 
-namespace ABPBackendTZ.Repository.IRepository;
+namespace MTRPZ4.Repository.IRepository;
 
 public interface IDeviceRepository
 {
