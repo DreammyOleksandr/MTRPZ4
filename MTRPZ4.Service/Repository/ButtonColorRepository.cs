@@ -13,5 +13,5 @@ public class ButtonColorRepository : IButtonColorRepository
     }
 
     public async Task<ButtonColor> GetById(int? id) => _data.GetButtonColors().Find(x => x.Id == id);
-    public async Task<IEnumerable<ButtonColor>> GetAll() => _data.GetButtonColors();
+    public async Task<List<ButtonColor>> GetAll() => _data.GetButtonColors();
 }

@@ -13,7 +13,7 @@ public class DeviceRepository : IDeviceRepository
     }
 
     public async Task<Device> GetByToken(string token) =>  _data.GetDevices().Find(x => string.Equals(x.Token, token));
-    public async Task<IEnumerable<Device>> GetAll() => _data.GetDevices();
+    public async Task<List<Device>> GetAll() => _data.GetDevices();
     public async Task Add(Device device) => _data.GetDevices().Add(device);
     public async Task Update(Device device)
     {

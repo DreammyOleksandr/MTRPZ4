@@ -6,9 +6,10 @@ namespace MTRPZ4.Controllers;
 
 public class ExperimentController : ControllerBase
 {
-    private readonly APIResponse _response = new();
     private const string GetButtonColorTemplate = "button-color";
     private const string GetPriceTemplate = "price";
+    
+    private readonly APIResponse _response = new();
     private readonly IDeviceRepository _deviceRepository;
     private readonly IButtonColorRepository _buttonColorRepository;
     private readonly IPriceRepository _priceRepository;
@@ -29,7 +30,7 @@ public class ExperimentController : ControllerBase
         try
         {
             _response.Key = GetButtonColorTemplate;
-            if (string.IsNullOrEmpty(deviceToken) || buttonColorId <= 0 || buttonColorId > 3) return BadRequest(_response);
+            if (string.IsNullOrEmpty(deviceToken) || buttonColorId <= 0 || buttonColorId > _buttonColorRepository.GetAll().Result.Count) return BadRequest(_response);
 
             var device = await _deviceRepository.GetByToken(deviceToken);
 
@@ -69,7 +70,7 @@ public class ExperimentController : ControllerBase
         try
         {
             _response.Key = GetPriceTemplate;
-            if (string.IsNullOrEmpty(deviceToken) || priceId <= 0 || priceId > 4) return BadRequest(_response);
+            if (string.IsNullOrEmpty(deviceToken) || priceId <= 0 || priceId > _priceRepository.GetAll().Result.Count) return BadRequest(_response);
 
             var device = await _deviceRepository.GetByToken(deviceToken);
 

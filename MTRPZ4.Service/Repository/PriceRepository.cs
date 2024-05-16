@@ -12,5 +12,5 @@ public class PriceRepository : IPriceRepository
     }
 
     public async Task<Price> GetById(int? id) =>  _data.GetPrices().Find(x => x.Id == id);
-    public async Task<IEnumerable<Price>> GetAll() => _data.GetPrices();
+    public async Task<List<Price>> GetAll() => _data.GetPrices();
 }
