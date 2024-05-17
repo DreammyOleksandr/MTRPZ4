@@ -1,9 +1,17 @@
+using MTRPZ4;
+using MTRPZ4.Repository;
+using MTRPZ4.Repository.IRepository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddSingleton<IDeviceRepository, DeviceRepository>();
+builder.Services.AddSingleton<IPriceRepository, PriceRepository>();
+builder.Services.AddSingleton<IButtonColorRepository, ButtonColorRepository>();
+builder.Services.AddSingleton<IDataStorage, DataStorage>();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
