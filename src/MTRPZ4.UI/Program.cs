@@ -1,6 +1,15 @@
+using CoinyProject.Shared.Extensions;
+using MTRPZ4.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRazorPages();
+
+builder.Services.AddDBConnection(builder.Configuration);
+builder.Services.ConfigurateIdentityOptions();
+builder.Services.AddIdentityUser();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

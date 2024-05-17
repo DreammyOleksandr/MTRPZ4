@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MTRPZ4.Application\MTRPZ4.Application.csproj" />
+    <ProjectReference Include="..\MTRPZ4.Infrastructure\MTRPZ4.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
