@@ -11,10 +11,10 @@ namespace MTRPZ4.Infrastructure
 {
     public static class ConnectionExtensions
     {
-        public static void AddDBConnection(this IServiceCollection service, IConfiguration configuration)
+        public static void AddDBConnection(this IServiceCollection service)
         {
             IServiceCollection serviceCollection = service.AddDbContext<ApplicationDBContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            options.UseInMemoryDatabase("_"));
         }
     }
 
