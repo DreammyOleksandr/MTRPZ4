@@ -1,5 +1,7 @@
 using CoinyProject.Shared.Extensions;
 using MTRPZ4.Infrastructure;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,12 +24,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+/*app.DBEnsureCreated();*/
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
