@@ -1,4 +1,4 @@
-using MTRPZ4.Models;
+using MTRPZ4.UI.Models;
 
 namespace MTRPZ4.Repository.IRepository;
 

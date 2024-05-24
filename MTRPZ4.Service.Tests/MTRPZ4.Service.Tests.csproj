@@ -21,8 +21,4 @@
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\MTRPZ4.Service\MTRPZ4.Service.csproj" />
-    </ItemGroup>
-
 </Project>

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MTRPZ4.Models;
+namespace MTRPZ4.UI.Models;
 
 public class Device
 {

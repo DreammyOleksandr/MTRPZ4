@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using MTRPZ4.CoreDomain.Entities;
 using MTRPZ4.Infrastructure;
@@ -12,7 +11,8 @@ namespace CoinyProject.Shared.Extensions
         {
             service.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDBContext>()
-                .AddDefaultTokenProviders();
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
         }
 
         public static void ConfigurateIdentityOptions(this IServiceCollection service)
