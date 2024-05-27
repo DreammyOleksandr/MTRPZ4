@@ -15,8 +15,13 @@ namespace MTRPZ4.Infrastructure.EntityTypeConfiguration
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.HEX)
+            builder.Property(x => x.Pigment)
+                .HasMaxLength(20)
                 .IsRequired();
+
+            builder.Property(x => x.Count)
+               .IsRequired()
+               .HasDefaultValue(0);
         }
     }
 }

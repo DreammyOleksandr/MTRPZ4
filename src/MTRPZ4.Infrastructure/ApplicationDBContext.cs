@@ -17,7 +17,7 @@ namespace MTRPZ4.Infrastructure
 
         public DbSet<Price> Prices { get; set; }
         public DbSet<Color> Colors { get; set; }
-        public DbSet<Choice> Choices { get; set; }
+        public DbSet<Font> Fonts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

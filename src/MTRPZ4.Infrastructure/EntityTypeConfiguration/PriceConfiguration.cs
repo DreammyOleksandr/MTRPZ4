@@ -18,6 +18,10 @@ namespace MTRPZ4.Infrastructure.EntityTypeConfiguration
             builder.Property(p => p.Value)
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
+
+            builder.Property(p => p.Count)
+                .IsRequired()
+                .HasDefaultValue(0);
         }
     }
 }

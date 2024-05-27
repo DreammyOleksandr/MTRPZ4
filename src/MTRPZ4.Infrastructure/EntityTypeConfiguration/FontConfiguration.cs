@@ -9,23 +9,15 @@ using System.Threading.Tasks;
 
 namespace MTRPZ4.Infrastructure.EntityTypeConfiguration
 {
-    internal class ChoiceConfiguration : IEntityTypeConfiguration<Choice>
+    internal class FontConfiguration : IEntityTypeConfiguration<Font>
     {
-        public void Configure(EntityTypeBuilder<Choice> builder)
+        public void Configure(EntityTypeBuilder<Font> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Price)
-                .WithMany()
-                .HasForeignKey(x => x.PriceId)
+           builder.Property(x => x.Type)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.NoAction);
-
-            builder.HasOne(x => x.Color)
-                .WithMany()
-                .HasForeignKey(x => x.ColorId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasMaxLength(20);
 
             builder.Property(x =>x.Count)
                 .IsRequired()
