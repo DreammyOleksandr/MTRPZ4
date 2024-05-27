@@ -8,5 +8,5 @@ public interface IDataStorage
 {
     List<Device> GetDevices();
     List<Price> GetPrices();
-    List<ButtonColor> GetButtonColors();
+    List<Color> GetButtonColors();
 }

@@ -13,6 +13,6 @@ public class ButtonColorRepository : IButtonColorRepository
         _data = data;
     }
 
-    public async Task<ButtonColor> GetById(int? id) => _data.GetButtonColors().Find(x => x.Id == id);
-    public async Task<List<ButtonColor>> GetAll() => _data.GetButtonColors();
+    public async Task<Color> GetById(int? id) => _data.GetButtonColors().Find(x => x.Id == id);
+    public async Task<List<Color>> GetAll() => _data.GetButtonColors();
 }

@@ -6,11 +6,11 @@ namespace MTRPZ4.Infrastructure.DataStorage;
 public sealed class DataStorage : IDataStorage
 {
     public List<Device> Devices = new();
-    public readonly List<ButtonColor> ButtonColors = new()
+    public readonly List<Color> ButtonColors = new()
     {
-        new ButtonColor { Id = 1, HEX = "#FF0000", },
-        new ButtonColor { Id = 2, HEX = "#00FF00", },
-        new ButtonColor { Id = 3, HEX = "#0000FF", }
+        new Color { Id = 1, HEX = "#FF0000", },
+        new Color { Id = 2, HEX = "#00FF00", },
+        new Color { Id = 3, HEX = "#0000FF", }
     };
 
     public readonly List<Price> Prices = new()
@@ -23,5 +23,5 @@ public sealed class DataStorage : IDataStorage
     
     public List<Device> GetDevices() => Devices;
     public List<Price> GetPrices() => Prices;
-    public List<ButtonColor> GetButtonColors() => ButtonColors;
+    public List<Color> GetButtonColors() => ButtonColors;
 }
