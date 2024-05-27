@@ -13,10 +13,12 @@ namespace MTRPZ4.CoreDomain.Entities
         public int Id { get; set; }
         public int? ColorId { get; set; }
         public int? PriceId { get; set; }
+        public int? FontId { get; set; }
         public int Count { get; set; }
 
         public Price? Price { get; set; }
         public Color? Color { get; set; }
+        public Font? Font { get; set; }
 
     }
 }

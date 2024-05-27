@@ -8,9 +8,9 @@ public sealed class DataStorage : IDataStorage
     public List<Device> Devices = new();
     public readonly List<Color> ButtonColors = new()
     {
-        new Color { Id = 1, HEX = "#FF0000", },
-        new Color { Id = 2, HEX = "#00FF00", },
-        new Color { Id = 3, HEX = "#0000FF", }
+        new Color { Id = 1, Pigment = "#FF0000", },
+        new Color { Id = 2, Pigment = "#00FF00", },
+        new Color { Id = 3, Pigment = "#0000FF", }
     };
 
     public readonly List<Price> Prices = new()
