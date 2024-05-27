@@ -1,7 +1,8 @@
+using MTRPZ4.CoreDomain.Entities;
 using MTRPZ4.Infrastructure.DataStorage;
-using MTRPZ4.UI.Models;
+using MTRPZ4.Infrastructure.Repository.IRepository;
 
-namespace MTRPZ4.Repository.IRepository;
+namespace MTRPZ4.Infrastructure.Repository;
 
 public class PriceRepository : IPriceRepository
 {
@@ -12,6 +13,6 @@ public class PriceRepository : IPriceRepository
         _data = data;
     }
 
-    public async Task<Price> GetById(int? id) =>  _data.GetPrices().Find(x => x.Id == id);
+    public async Task<Price> GetById(int? id) => _data.GetPrices().Find(x => x.Id == id);
     public async Task<List<Price>> GetAll() => _data.GetPrices();
 }

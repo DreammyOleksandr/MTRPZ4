@@ -1,6 +1,6 @@
-using MTRPZ4.UI.Models;
+using MTRPZ4.CoreDomain.Entities;
 
-namespace MTRPZ4.Repository.IRepository;
+namespace MTRPZ4.Infrastructure.Repository.IRepository;
 
 public interface IButtonColorRepository
 {

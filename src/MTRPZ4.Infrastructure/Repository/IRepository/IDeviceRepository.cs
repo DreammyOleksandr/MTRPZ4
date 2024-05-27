@@ -1,7 +1,6 @@
+using MTRPZ4.Application.Models;
 
-using MTRPZ4.UI.Models;
-
-namespace MTRPZ4.Repository.IRepository;
+namespace MTRPZ4.Infrastructure.Repository.IRepository;
 
 public interface IDeviceRepository
 {

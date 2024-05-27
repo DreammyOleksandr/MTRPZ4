@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MTRPZ4.UI.Models;
+namespace MTRPZ4.CoreDomain.Entities;
 
 public class Price
 {
-    [Key] public int Id { get; set; }
+    public int Id { get; set; }
     public decimal Value { get; set; }
 }

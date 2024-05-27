@@ -1,5 +1,6 @@
+using MTRPZ4.Application.Models;
+using MTRPZ4.CoreDomain.Entities;
 using MTRPZ4.Infrastructure.DataStorage;
-using MTRPZ4.UI.Models;
 
 namespace MTRPZ4.Infrastructure.DataStorage;
 

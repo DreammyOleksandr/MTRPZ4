@@ -1,7 +1,9 @@
-using CoinyProject.Shared.Extensions;
 using MTRPZ4.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MTRPZ4.Infrastructure.Repository.IRepository;
+using MTRPZ4.Infrastructure.Repository;
+using MTRPZ4.Infrastructure.DataStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ builder.Services.ConfigurateIdentityOptions();
 builder.Services.AddIdentityUser();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IButtonColorRepository, ButtonColorRepository>();
+builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+builder.Services.AddScoped<IPriceRepository, PriceRepository>();
+builder.Services.AddScoped<IDataStorage, DataStorage>();
 
 var app = builder.Build();
 

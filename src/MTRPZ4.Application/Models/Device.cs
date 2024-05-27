@@ -1,7 +1,8 @@
+using MTRPZ4.CoreDomain.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MTRPZ4.UI.Models;
+namespace MTRPZ4.Application.Models;
 
 public class Device
 {

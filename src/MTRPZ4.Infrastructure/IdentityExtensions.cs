@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using MTRPZ4.CoreDomain.Entities;
-using MTRPZ4.Infrastructure;
 
-namespace CoinyProject.Shared.Extensions
+namespace MTRPZ4.Infrastructure
 {
     public static class IdentityExtensions
     {

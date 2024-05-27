@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MTRPZ4.Repository.IRepository;
-using MTRPZ4.UI.Models;
+using MTRPZ4.Application.Models;
+using MTRPZ4.Infrastructure.Repository.IRepository;
 
 namespace MTRPZ4.UI.Controllers
 {

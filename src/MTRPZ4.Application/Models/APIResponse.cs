@@ -1,4 +1,4 @@
-namespace MTRPZ4.UI.Models;
+namespace MTRPZ4.Application.Models;
 
 public class APIResponse
 {

@@ -1,8 +1,8 @@
+using MTRPZ4.CoreDomain.Entities;
 using MTRPZ4.Infrastructure.DataStorage;
-using MTRPZ4.Repository.IRepository;
-using MTRPZ4.UI.Models;
+using MTRPZ4.Infrastructure.Repository.IRepository;
 
-namespace MTRPZ4.Repository;
+namespace MTRPZ4.Infrastructure.Repository;
 
 public class ButtonColorRepository : IButtonColorRepository
 {
