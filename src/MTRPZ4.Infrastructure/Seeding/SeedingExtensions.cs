@@ -9,11 +9,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MTRPZ4.Infrastructure
+namespace MTRPZ4.Infrastructure.Seeding
 {
     public static class SeedingExtensions
     {
-        public static async Task DBEnsureCreated(this IApplicationBuilder applicationBuilder)
+        public static async Task SeedStartupDb(this IApplicationBuilder applicationBuilder)
         {
             using (var scope = applicationBuilder.ApplicationServices.CreateScope())
             {
@@ -23,9 +23,23 @@ namespace MTRPZ4.Infrastructure
                 await db.EnsureDeletedAsync();
                 await db.EnsureCreatedAsync();
 
+                await SeedData(dbContext);
             }
         }
 
-   
+        private static async Task SeedData(ApplicationDBContext dbContext)
+        {
+            var colors = ButtonSeeder.GetButtonColors();
+            var prices = ButtonSeeder.GetButtonPrices();
+            var fonts = ButtonSeeder.GetButtonFonts();
+
+            await dbContext.Colors.AddRangeAsync(colors);
+            await dbContext.Prices.AddRangeAsync(prices);
+            await dbContext.Fonts.AddRangeAsync(fonts);
+
+            await dbContext.SaveChangesAsync();
+        }
+
+
     }
 }
