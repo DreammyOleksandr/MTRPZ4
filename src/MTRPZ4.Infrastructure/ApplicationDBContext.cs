@@ -15,6 +15,10 @@ namespace MTRPZ4.Infrastructure
        
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { }
 
+        public DbSet<Price> Prices { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Choice> Choices { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDBContext).Assembly);
