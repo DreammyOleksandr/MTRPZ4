@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MTRPZ4.Models;
+namespace MTRPZ4.UI.Models;
 
 public class ButtonColor
 {
