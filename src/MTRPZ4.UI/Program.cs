@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using MTRPZ4.Infrastructure.Repository.IRepository;
 using MTRPZ4.Infrastructure.Repository;
 using MTRPZ4.Infrastructure.DataStorage;
+using Microsoft.AspNetCore.Builder;
+using MTRPZ4.Infrastructure.Seeding;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,16 @@ builder.Services.ConfigurateIdentityOptions();
 builder.Services.AddIdentityUser();
 
 builder.Services.AddControllersWithViews();
+
+//remove latter
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "My API",
+        Version = "v1"
+    });
+});
 
 builder.Services.AddScoped<IButtonColorRepository, ButtonColorRepository>();
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
@@ -30,7 +42,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-/*app.DBEnsureCreated();*/
+//remove latter
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    c.RoutePrefix = string.Empty; // ўоб мати доступ до Swagger UI на кореневому URL
+});
+
+await app.SeedStartupDb();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -41,8 +62,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.MapControllerRoute(
+//remove comment latter
+/*app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");*/
 
 app.Run();
