@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MTRPZ4.Application\MTRPZ4.Application.csproj" />
     <ProjectReference Include="..\MTRPZ4.DomainCore\MTRPZ4.CoreDomain.csproj" />
   </ItemGroup>
 
