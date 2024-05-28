@@ -1,27 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MTRPZ4.Application.Models;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
+using MTRPZ4.Application.DTO;
+using MTRPZ4.Application.Services;
+using MTRPZ4.Infrastructure.Repository;
 using MTRPZ4.Infrastructure.Repository.IRepository;
 
 namespace MTRPZ4.UI.Controllers
 {
     public class ResultController : Controller
     {
-        private const string GetButtonColorTemplate = "button-color";
-        private const string GetPriceTemplate = "price";
+        private const string GetCard = "card";
+        private const string SaveChoice = "save-choice";
 
-        private readonly APIResponse _response = new();
-        private readonly IDeviceRepository _deviceRepository;
-        private readonly IButtonColorRepository _buttonColorRepository;
-        private readonly IPriceRepository _priceRepository;
+        private readonly ICardService _cardService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ResultController(
-            IDeviceRepository deviceRepository,
-            IButtonColorRepository buttonColorRepository,
-            IPriceRepository priceRepository)
+        public ResultController(ICardService cardService, IUnitOfWork unitOfWork)
         {
-            _priceRepository = priceRepository;
-            _buttonColorRepository = buttonColorRepository;
-            _deviceRepository = deviceRepository;
+          
+            _cardService = cardService;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
@@ -29,40 +27,14 @@ namespace MTRPZ4.UI.Controllers
             return View();
         }
 
-        [HttpGet(GetButtonColorTemplate)]
-        public async Task<IActionResult> GetButtonColor([FromQuery] string? deviceToken, [FromQuery] int buttonColorId)
+
+        [HttpGet(GetCard)]
+        public async Task<IActionResult> GetRandomCards()
         {
             try
             {
-                _response.Key = GetButtonColorTemplate;
-                if (string.IsNullOrEmpty(deviceToken) || buttonColorId <= 0 ||
-                    buttonColorId > _buttonColorRepository.GetAll().Result.Count) return BadRequest(_response);
-
-                var device = await _deviceRepository.GetByToken(deviceToken);
-
-                if (device is { } && device.ButtonColorId is { } && device.ButtonColorId > 0)
-                    _response.Value = device;
-
-                if (device is { } && device.ButtonColorId is null)
-                {
-                    device.ButtonColorId = buttonColorId;
-                    device.ButtonColor = await _buttonColorRepository.GetById(buttonColorId);
-                    _response.Value = device;
-                }
-
-                if (device is null)
-                {
-                    device = new()
-                    {
-                        Token = deviceToken,
-                        ButtonColorId = buttonColorId,
-                        ButtonColor = await _buttonColorRepository.GetById(buttonColorId),
-                    };
-                    await _deviceRepository.Add(device);
-                    _response.Value = device;
-                }
-
-                return Ok(_response);
+                var response = await _cardService.GetRandomCards();
+                return Ok(response);
             }
             catch (Exception)
             {
@@ -70,44 +42,34 @@ namespace MTRPZ4.UI.Controllers
             }
         }
 
-        public async Task<IActionResult> GetPrice([FromQuery] string? deviceToken, [FromQuery] int priceId)
+        [HttpGet(SaveChoice)]
+        public async Task<IActionResult> SaveChosedCard([FromQuery] ChosedCardDTO? choice)
         {
             try
             {
-                _response.Key = GetPriceTemplate;
-                if (string.IsNullOrEmpty(deviceToken) || priceId <= 0 ||
-                    priceId > _priceRepository.GetAll().Result.Count) return BadRequest(_response);
-
-                var device = await _deviceRepository.GetByToken(deviceToken);
-
-                if (device is { } && device.PriceId is { } && device.PriceId > 0)
-                    _response.Value = device;
-
-                if (device is { } && device.PriceId is null)
-                {
-                    device.PriceId = priceId;
-                    device.Price = await _priceRepository.GetById(priceId);
-                    _response.Value = device;
-                }
-
-                if (device is null)
-                {
-                    device = new()
-                    {
-                        Token = deviceToken,
-                        PriceId = priceId,
-                        Price = await _priceRepository.GetById(priceId),
-                    };
-                    await _deviceRepository.Add(device);
-                    _response.Value = device;
-                }
-
-                return Ok(_response);
+                await _cardService.SaveCardChoice(choice);
+                return Ok();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
         }
+
+        //remove latter
+        [HttpGet("show-data")]
+        public async Task<IActionResult> ShowData()
+        {
+            try
+            {
+                var response = await _unitOfWork.Colors.GetAll();
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MTRPZ4.Infrastructure.Repository.IRepository;
 using MTRPZ4.Infrastructure.Repository;
-using MTRPZ4.Infrastructure.DataStorage;
 using Microsoft.AspNetCore.Builder;
 using MTRPZ4.Infrastructure.Seeding;
+using MTRPZ4.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +18,7 @@ builder.Services.AddIdentityUser();
 builder.Services.AddControllersWithViews();
 
 //remove latter
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -26,11 +27,10 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1"
     });
 });
+//to here
 
-builder.Services.AddScoped<IButtonColorRepository, ButtonColorRepository>();
-builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
-builder.Services.AddScoped<IPriceRepository, PriceRepository>();
-builder.Services.AddScoped<IDataStorage, DataStorage>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICardService, CardService>();
 
 var app = builder.Build();
 
@@ -49,6 +49,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
     c.RoutePrefix = string.Empty; // ўоб мати доступ до Swagger UI на кореневому URL
 });
+//to here
 
 await app.SeedStartupDb();
 
@@ -62,9 +63,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-//remove comment latter
-/*app.MapControllerRoute(
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");*/
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
