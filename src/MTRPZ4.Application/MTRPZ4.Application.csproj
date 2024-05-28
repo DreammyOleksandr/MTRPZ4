@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MTRPZ4.DomainCore\MTRPZ4.CoreDomain.csproj" />
+    <ProjectReference Include="..\MTRPZ4.Infrastructure\MTRPZ4.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
