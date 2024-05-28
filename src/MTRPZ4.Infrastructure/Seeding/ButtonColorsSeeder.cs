@@ -22,7 +22,6 @@ namespace MTRPZ4.Infrastructure.Seeding
             new Price { Id = 1, Value = 12.49M, },
             new Price { Id = 2, Value = 22.78M, },
             new Price { Id = 3, Value = 33.11M, },
-            new Price  {Id = 4, Value = 11.08M, }
         };
         
         public static List<Font> GetButtonFonts() => new List<Font>
