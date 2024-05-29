@@ -10,4 +10,9 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MTRPZ4.DomainCore\MTRPZ4.CoreDomain.csproj" />
+    <ProjectReference Include="..\MTRPZ4.Infrastructure\MTRPZ4.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

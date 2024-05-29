@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MTRPZ4.CoreDomain.Entities;
 using MTRPZ4.Infrastructure;
 
-namespace CoinyProject.WebUI.Areas.Identity
+namespace MTRPZ4.UI.Areas.Identity
 {
     public static class IdentityExtensions
     {
