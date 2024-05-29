@@ -1,8 +1,60 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<main class="main">
+	<section class="full-page">
+		<div class="full-page__background" aria-hidden="true">
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="Materials/decor-element-4.webp 1x" type="image/webp">
+					<img src="Materials/decor-element-4.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="Materials/decor-element-5.webp 1x" type="image/webp">
+					<img src="Materials/decor-element-5.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="/Materials/decor-element-2.webp 1x" type="image/webp">
+					<img src="/Materials/decor-element-2.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+		</div>
+		<div class="full-page__main">
+			<div class="full-page__content">
+				<h1 class="full-page__title main-title">
+					Testing
+				</h1>
+				<div class="full-page__text text">
+					<p>
+						Welcome to our survey of the most appealing style configurations.
+						To start testing, please click the button below.
+					</p>
+				</div>
+				<a asp-controller="Test" asp-action="Index" class="full-page__button button is-transparent" aria-label="Start testing">
+					<span aria-hidden="true"></span>
+					<span>
+						Start testing
+					</span>
+				</a>
+			</div>
+		</div>
+	</section>
+</main>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <a class="nav-link text-dark" asp-controller="Test" asp-action="Index">Go to Test</a>
-</div>
+<footer class="footer">
+	<div class="footer__decor mode-3" aria-hidden="true">
+		<div class="footer__decor-blur">
+			<picture>
+				<source srcset="/Materials/footer-decor-element-3-blur.webp 1x" type="image/webp">
+				<img src="/Materials/footer-decor-element-3-blur.png" alt="" width="0" height="0">
+			</picture>
+		</div>
+		<div class="footer__decor-hero">
+			<img src="/Materials/footer-decor-element-3.svg" width="0" height="0" alt="">
+		</div>
+	</div>
+
+	<partial name="/Views/Shared/_FooterMeta.cshtml" />
+
+</footer>
