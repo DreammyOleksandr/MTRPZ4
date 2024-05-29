@@ -1,41 +1,92 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-    Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
-}
+<main class="main">
+	<section class="full-page">
+		<div class="full-page__background" aria-hidden="true">
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="/Materials/decor-element-4.webp 1x" type="image/webp">
+					<img src="/Materials/decor-element-4.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="/Materials/decor-element-5.webp 1x" type="image/webp">
+					<img src="/Materials/decor-element-5.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+			<div class="full-page__decor">
+				<picture>
+					<source srcset="/Materials/decor-element-2.webp 1x" type="image/webp">
+					<img src="/Materials/decor-element-2.png" alt="" width="0" height="0" loading="lazy">
+				</picture>
+			</div>
+		</div>
+		<div class="full-page__main">
+			<form method="post" class="full-page__auth auth-form">
+				<h1 class="auth-form__title title">
+					Welcome Back
+				</h1>
+				<label class="auth-form__label">
+					<span><input asp-for="Input.Email" type="email" name="email" placeholder="Email" required="" class="auth-form__input"></span>
+				</label>
+				<label class="auth-form__label">
+					<span><input asp-for="Input.Password" type="password" name="password" placeholder="Password" required="" class="auth-form__input"></span>
+				</label>
 
-<div class="row justify-content-center">
-    <div class="col-10">
-        <section>
-            <form id="account" method="post">
-                <h2 class="row justify-content-center">Welcome Back</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-            </form>
-        </section>
-    </div>
-</div>
+				<label class="auth-form__checkbox" style="margin-bottom: 10px;">
+					<input type="checkbox" name="remember-me" class="auth-form__checkbox-input asp-for="Input.RememberMe">
+					<span class="auth-form__checkbox-element">
+						<svg width="16" height="17">
+							<use href="img/sprites.svg#check"></use>
+						</svg>
+					</span>
+					<span class="auth-form__checkbox-text">
+						Remember me?
+					</span>
+				</label>
+				<div asp-validation-summary="ModelOnly" class="text-danger" role="alert" style="color: red; font-size:12px; display: block;"></div>
+				<span asp-validation-for="Input.Email" class="text-danger" style="color: red; font-size:12px; display: block;"></span>
+				<span asp-validation-for="Input.Password" class="text-danger" style="color: red; font-size:12px; display: block;"></span>
+				<button class="auth-form__submit button" type="submit" aria-label="Register">
+					<span aria-hidden="true"></span>
+					<span>
+						Login
+					</span>
+				</button>
+				<div class="auth-form__message text">
+					<p>
+						Something is wrong. Please try registering later.
+					</p>
+				</div>
+				<div class="auth-form__info min-text">
+					Don't have an account?<br>
+					<a href="/Identity/Account/Register">Sign up</a>
+				</div>
+			</form>
+
+		</div>
+	</section>
+</main>
+
+<footer class="footer">
+	<div class="footer__decor mode-3" aria-hidden="true">
+		<div class="footer__decor-blur">
+			<picture>
+				<source srcset="/Materials/footer-decor-element-3-blur.webp 1x" type="image/webp">
+				<img src="/Materials/footer-decor-element-3-blur.png" alt="" width="0" height="0">
+			</picture>
+		</div>
+		<div class="footer__decor-hero">
+			<img src="/Materials/footer-decor-element-3.svg" width="0" height="0" alt="">
+		</div>
+	</div>
+
+	<partial name="/Views/Shared/_FooterMeta.cshtml" />
+
+</footer>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
