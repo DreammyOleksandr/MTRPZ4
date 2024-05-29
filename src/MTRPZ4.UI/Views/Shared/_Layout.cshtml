@@ -17,17 +17,17 @@
                 <div class="header__nav_body">
                     <ul class="header__nav_list">
                         <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Index" aria-label="Home">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" aria-label="Home" id="Home">
                                 <span>Home</span>
                             </a>
                         </li>
                         <li>
-                            <a class="is-current" asp-area="" asp-controller="Test" asp-action="Index" aria-label="Testing">
+                            <a asp-area="" asp-controller="Test" asp-action="Index" aria-label="Testing" id="Testing">
                                 <span>Testing</span>
                             </a>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="Result" asp-action="Index" aria-label="Results">
+                            <a asp-area="" asp-controller="Result" asp-action="Index" aria-label="Results" id="Results">
                                 <span>Results</span>
                             </a>
                         </li>
@@ -52,6 +52,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
