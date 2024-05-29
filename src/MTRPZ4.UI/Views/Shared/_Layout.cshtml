@@ -1,41 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MTRPZ4</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MTRPZ4.UI.styles.css" asp-append-version="true" />
+<head lang="en" style="--height-header: 77px; --height-footer: 386px; --vh: 12.79px; --svh: 12.79px;">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#222">
+    <link rel="stylesheet" href="/css/style.min.css ">
+    <meta id="Reverso_extension___elForCheckedInstallExtension" name="Reverso extension" content="2.2.205">
+    <link href="data:text/css,%3Ais(%5Bid*%3D'google_ads_iframe'%5D%2C%5Bid*%3D'taboola-'%5D%2C.taboolaHeight%2C.taboola-placeholder%2C%23credential_picker_container%2C%23credentials-picker-container%2C%23credential_picker_iframe%2C%5Bid*%3D'google-one-tap-iframe'%5D%2C%23google-one-tap-popup-container%2C.google-one-tap-modal-div%2C%23amp_floatingAdDiv%2C%23ez-content-blocker-container)%20%7Bdisplay%3Anone!important%3Bmin-height%3A0!important%3Bheight%3A0!important%3B%7D" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MTRPZ4</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Test" asp-action="Index">Testing</a>
+    <div class="wrapper">
+        <header class="header">
+
+            <nav class="header__nav">
+                <div class="header__nav_body">
+                    <ul class="header__nav_list">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index" aria-label="Home">
+                                <span>Home</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Result" asp-action="Index">Results</a>
+                        <li>
+                            <a class="is-current" asp-area="" asp-controller="Test" asp-action="Index" aria-label="Testing">
+                                <span>Testing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Result" asp-action="Index" aria-label="Results">
+                                <span>Results</span>
+                            </a>
                         </li>
                     </ul>
 
                     <partial name="_LoginPartial.cshtml" />
+
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            </nav>
+
+            <button class="header__burger" type="button" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        @RenderBody()
+
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
