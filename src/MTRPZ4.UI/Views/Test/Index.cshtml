@@ -1,5 +1,187 @@
-﻿
-<div class="text-center">
-    <h1 class="display-4">Testing Page</h1>
-    <a class="nav-link text-dark" asp-controller="Test" asp-action="CompleteTest">Complete Testing</a>
-</div>
+﻿<main class="main">
+	<div class="main__background mode-2" aria-hidden="true">
+		<picture>
+			<source srcset="/Materials/decor-element-3.webp 1x" type="image/webp">
+			<img src="/Materials/decor-element-3.png" alt="" width="0" height="0" loading="lazy">
+		</picture>
+	</div>
+	<section class="testing">
+		<div class="testing__hero container">
+			<h1 class="testing__title main-title">
+				Testing
+			</h1>
+			<div class="testing__text text">
+				<p>
+					Choose the most attractive option for you
+				</p>
+			</div>
+		</div>
+		<ul class="testing__list min-container">
+			<li class="testing__card option-card">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+			<li class="testing__card option-card is-hover">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+			<li class="testing__card option-card">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+			<li class="testing__card option-card">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+			<li class="testing__card option-card">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+			<li class="testing__card option-card">
+				<div class="option-card__background" aria-hidden="true"></div>
+				<ul class="option-card__info">
+					<li>
+						<span>Color:</span>
+						<b style="color: red;">Red</b>
+					</li>
+					<li>
+						<span>Price:</span>
+						<b>123</b>
+					</li>
+					<li>
+						<span>Something:</span>
+						<b>Value</b>
+					</li>
+				</ul>
+				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+					<span aria-hidden="true"></span>
+					<span>
+						Select
+					</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+</main>
+
+<footer class="footer">
+	<div class="footer__decor mode-2" aria-hidden="true">
+		<div class="footer__decor-blur">
+			<picture>
+				<source srcset="/Materials/footer-decor-element-2-blur.webp 1x" type="image/webp">
+				<img src="/Materials/footer-decor-element-2-blur.png" alt="" width="0" height="0">
+			</picture>
+		</div>
+		<div class="footer__decor-hero">
+			<img src="/Materials/footer-decor-element-2.svg" width="0" height="0" alt="">
+		</div>
+	</div>
+
+	<partial name="/Views/Shared/_FooterMeta.cshtml" />
+
+</footer>
+
+<script>
+	var home = document.getElementById("Home");
+	var testing = document.getElementById("Testing");
+	var result = document.getElementById("Results");
+
+	home.classList.remove("is-current");
+	testing.classList.add("is-current");
+	result.classList.remove("is-current");
+</script>
