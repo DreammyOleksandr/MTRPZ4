@@ -1,4 +1,18 @@
-﻿<main class="main">
+﻿@using MTRPZ4.Application.Services
+@using System.Text.Json;
+
+
+@inject IDataPreparationService dataPreparation
+@{
+	List<List<string>> ListOfValues = await dataPreparation.MakeListOfValuesForAllCharts();
+	List<List<int>> ListOfCounts = await dataPreparation.MakeListOfCountsForAllCharts();
+
+	string ListOfValuesJSON = JsonSerializer.Serialize(ListOfValues);
+	string ListOfCountsJSON = JsonSerializer.Serialize(ListOfCounts);
+	Console.Write(ListOfValuesJSON);
+}
+
+<main class="main">
 	<div class="main__background" aria-hidden="true">
 		<picture>
 			<source srcset="/Materials/decor-element-1.webp 1x" type="image/webp">
@@ -22,7 +36,7 @@
 						<div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;">
 							<div class="simplebar-content" style="padding: 50px 0px 0px;">
 								<div class="main-chart__inner">
-									<div class="main-chart__container"><canvas width="1340" height="670" style="display: block; box-sizing: border-box; height: 670px; width: 1340px;"></canvas></div>
+									<div class="main-chart__container" style="background: rgba(0, 0, 0, 0)"><canvas id="main_chart" width="1340" height="670" style="display: block; box-sizing: border-box; height: 670px; width: 1340px;"></canvas></div>
 								</div>
 							</div>
 						</div>
@@ -38,8 +52,8 @@
 							<div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;">
 								<div class="simplebar-content" style="padding: 0px 0px 0px 16px;">
 									<div class="add-charts__item-inner">
-										<div class="add-charts__item-container">
-											<canvas width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
+										<div class="add-charts__item-container" style="background: rgba(0, 0, 0, 0)">
+											<canvas id="colour_chart" width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
 										</div>
 									</div>
 								</div>
@@ -54,8 +68,8 @@
 							<div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;">
 								<div class="simplebar-content" style="padding: 0px 0px 0px 16px;">
 									<div class="add-charts__item-inner">
-										<div class="add-charts__item-container">
-											<canvas width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
+										<div class="add-charts__item-container" style="background: rgba(0, 0, 0, 0)">
+											<canvas id="price_chart" width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
 										</div>
 									</div>
 								</div>
@@ -70,8 +84,8 @@
 							<div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;">
 								<div class="simplebar-content" style="padding: 0px 0px 0px 16px;">
 									<div class="add-charts__item-inner">
-										<div class="add-charts__item-container">
-											<canvas width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
+										<div class="add-charts__item-container" style="background: rgba(0, 0, 0, 0)">
+											<canvas id="font_chart" width="550" height="275" style="display: block; box-sizing: border-box; height: 275px; width: 550px;"></canvas>
 										</div>
 									</div>
 								</div>
@@ -101,6 +115,15 @@
 	<partial name="/Views/Shared/_FooterMeta.cshtml" />
 
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+	const ListOfValues = @Html.Raw(ListOfValuesJSON);
+	const ListOfCounts = @Html.Raw(ListOfCountsJSON);
+</script>
+
+<script src="/js/charts.js" asp-append-version="true"></script>
 
 <script>
 	var home = document.getElementById("Home");
