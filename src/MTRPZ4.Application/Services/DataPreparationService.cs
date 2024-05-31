@@ -40,18 +40,18 @@ namespace MTRPZ4.Application.Services
 			var fonts = await _unitOfWork.Fonts.GetAll();
 
 			IEnumerable<ChartDataDTO> allOptions = await GetAllOptions();
-			IEnumerable<ChartDataDTO> sortedAllOptions = allOptions.OrderBy(o => o.Count);
+			IEnumerable<ChartDataDTO> sortedAllOptions = allOptions.OrderBy(o => o.Count).Reverse();
 
 			IEnumerable<ChartDataDTO> colorsOptions = colors.Select(o => new ChartDataDTO { Value = o.Pigment, Count = o.Count });
-			IEnumerable<ChartDataDTO> sortedColorsOptions = colorsOptions.OrderBy(o => o.Count);
+			IEnumerable<ChartDataDTO> sortedColorsOptions = colorsOptions.OrderBy(o => o.Count).Reverse();
 
 
 			IEnumerable<ChartDataDTO> pricesOptions = prices.Select(o => new ChartDataDTO { Value = o.Value.ToString(), Count = o.Count });
-			IEnumerable<ChartDataDTO> sortedPricesOptions = pricesOptions.OrderBy(o => o.Count);
+			IEnumerable<ChartDataDTO> sortedPricesOptions = pricesOptions.OrderBy(o => o.Count).Reverse();
 
 
 			IEnumerable<ChartDataDTO> fontsOptions = fonts.Select(o => new ChartDataDTO { Value = o.Type, Count = o.Count });
-			IEnumerable<ChartDataDTO> sortedFontsOptions = fontsOptions.OrderBy(o => o.Count);
+			IEnumerable<ChartDataDTO> sortedFontsOptions = fontsOptions.OrderBy(o => o.Count).Reverse();
 
 
 			List<IEnumerable<ChartDataDTO>> ListOfSortedOptions = new List<IEnumerable<ChartDataDTO>>
