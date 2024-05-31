@@ -1,4 +1,6 @@
-﻿<main class="main">
+﻿@model List<CardDTO>
+
+<main class="main">
 	<div class="main__background mode-2" aria-hidden="true">
 		<picture>
 			<source srcset="/Materials/decor-element-3.webp 1x" type="image/webp">
@@ -22,18 +24,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[0].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[0].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[0].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
@@ -45,18 +47,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[1].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[1].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[1].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
@@ -68,18 +70,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[2].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[2].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[2].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
@@ -91,18 +93,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[3].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[3].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[3].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
@@ -114,18 +116,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[4].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[4].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[4].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
@@ -137,18 +139,18 @@
 				<ul class="option-card__info">
 					<li>
 						<span>Color:</span>
-						<b style="color: red;">Red</b>
+						<b>@Model[5].Color.Value</b>
 					</li>
 					<li>
 						<span>Price:</span>
-						<b>123</b>
+						<b>@Model[5].Price.Value</b>
 					</li>
 					<li>
-						<span>Something:</span>
-						<b>Value</b>
+						<span>Font:</span>
+						<b>@Model[5].Font.Value</b>
 					</li>
 				</ul>
-				<a asp-area="" asp-controller="Result" asp-action="Index" class="option-card__button button" aria-label="Select">
+				<a asp-area="" asp-controller="Test" asp-action="Index" asp-route-ColorId=@Model[0].Color.Id asp-route-FontId=@Model[0].Font.Id asp-route-PriceId=@Model[0].Price.Id class="option-card__button button" aria-label="Select">
 					<span aria-hidden="true"></span>
 					<span>
 						Select
