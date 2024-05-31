@@ -52,10 +52,10 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
 			var expectedValues = new List<List<string>>
 		{
-			new List<string> { "9,99", "19,99", "Red", "Arial", "Blue", "Times New Roman" },
-			new List<string> { "Red", "Blue" },
-			new List<string> { "9,99", "19,99" },
-			new List<string> { "Arial", "Times New Roman" }
+			new List<string> { "Times New Roman", "Blue", "Arial", "Red", "19.99", "9.99" },
+			new List<string> { "Blue", "Red" },
+			new List<string> { "19.99", "9.99" },
+			new List<string> { "Times New Roman", "Arial" }
 		};
 
 			Assert.Equal(expectedValues.Count, result.Count);

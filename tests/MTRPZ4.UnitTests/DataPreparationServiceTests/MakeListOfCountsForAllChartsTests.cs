@@ -53,10 +53,10 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
 			var expectedValues = new List<List<int>>
 		{
-			new List<int> { 5, 8, 10, 12, 15, 20 },
-			new List<int> { 10, 15 },
-			new List<int> { 5, 8 },
-			new List<int> { 12, 20 }
+			new List<int> { 20, 15, 12, 10, 8, 5},
+			new List<int> { 15, 10 },
+			new List<int> { 8, 5 },
+			new List<int> { 20, 12 }
 		};
 
 			Assert.Equal(expectedValues.Count, result.Count);

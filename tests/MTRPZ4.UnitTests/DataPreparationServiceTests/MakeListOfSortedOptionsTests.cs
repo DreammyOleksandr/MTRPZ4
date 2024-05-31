@@ -52,31 +52,31 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
 			Assert.Equal(4, result.Count);
 
-			Assert.Equal(5, result[0].ToList()[0].Count);
-			Assert.Equal(8, result[0].ToList()[1].Count);
-			Assert.Equal(10, result[0].ToList()[2].Count);
-			Assert.Equal(12, result[0].ToList()[3].Count);	
-			Assert.Equal(15, result[0].ToList()[4].Count);
-			Assert.Equal(20, result[0].ToList()[5].Count);
-			Assert.Equal(10, result[1].ToList()[0].Count);
-			Assert.Equal(15, result[1].ToList()[1].Count);
-			Assert.Equal(5, result[2].ToList()[0].Count);
-			Assert.Equal(8, result[2].ToList()[1].Count);
-			Assert.Equal(12, result[3].ToList()[0].Count);
-			Assert.Equal(20, result[3].ToList()[1].Count);
+			Assert.Equal(20, result[0].ToList()[0].Count);
+			Assert.Equal(15, result[0].ToList()[1].Count);
+			Assert.Equal(12, result[0].ToList()[2].Count);
+			Assert.Equal(10, result[0].ToList()[3].Count);	
+			Assert.Equal(8, result[0].ToList()[4].Count);
+			Assert.Equal(5, result[0].ToList()[5].Count);
+			Assert.Equal(15, result[1].ToList()[0].Count);
+			Assert.Equal(10, result[1].ToList()[1].Count);
+			Assert.Equal(8, result[2].ToList()[0].Count);
+			Assert.Equal(5, result[2].ToList()[1].Count);
+			Assert.Equal(20, result[3].ToList()[0].Count);
+			Assert.Equal(12, result[3].ToList()[1].Count);
 
-			Assert.Equal("9,99", result[0].ToList()[0].Value);
-			Assert.Equal("19,99",result[0].ToList()[1].Value);
-			Assert.Equal("Red", result[0].ToList()[2].Value);
-			Assert.Equal("Arial", result[0].ToList()[3].Value);
-			Assert.Equal("Blue", result[0].ToList()[4].Value);
-			Assert.Equal("Times New Roman", result[0].ToList()[5].Value);
-			Assert.Equal("Red", result[1].ToList()[0].Value);
-			Assert.Equal("Blue", result[1].ToList()[1].Value);
-			Assert.Equal("9,99", result[2].ToList()[0].Value);
-			Assert.Equal("19,99", result[2].ToList()[1].Value);
-			Assert.Equal("Arial", result[3].ToList()[0].Value);
-			Assert.Equal("Times New Roman", result[3].ToList()[1].Value);
+			Assert.Equal("Times New Roman", result[0].ToList()[0].Value);
+			Assert.Equal("Blue",result[0].ToList()[1].Value);
+			Assert.Equal("Arial", result[0].ToList()[2].Value);
+			Assert.Equal("Red", result[0].ToList()[3].Value);
+			Assert.Equal("19.99", result[0].ToList()[4].Value);
+			Assert.Equal("9.99", result[0].ToList()[5].Value);
+			Assert.Equal("Blue", result[1].ToList()[0].Value);
+			Assert.Equal("Red", result[1].ToList()[1].Value);
+			Assert.Equal("19.99", result[2].ToList()[0].Value);
+			Assert.Equal("9.99", result[2].ToList()[1].Value);
+			Assert.Equal("Times New Roman", result[3].ToList()[0].Value);
+			Assert.Equal("Arial", result[3].ToList()[1].Value);
 		}
 	}
 }
