@@ -17,20 +17,9 @@ builder.Services.AddIdentityUser();
 
 builder.Services.AddControllersWithViews();
 
-//remove latter
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Title = "My API",
-        Version = "v1"
-    });
-});
-//to here
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICardService, CardService>();
+builder.Services.AddScoped<IDataPreparationService, DataPreparationService>();
 
 var app = builder.Build();
 
@@ -41,15 +30,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-//remove latter
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = string.Empty; // ўоб мати доступ до Swagger UI на кореневому URL
-});
-//to here
 
 await app.SeedStartupDb();
 
