@@ -30,7 +30,7 @@ namespace MTRPZ4.UI.Controllers
 			}
 			else
 			{
-				IEnumerable<CardDTO> cards = await _cardService.GetRandomCards();
+				IEnumerable<CardDTO> cards = await _cardService.GetRandomCards(_userManager.GetUserId(User));
 				List<CardDTO> cardsList = cards.ToList();
 
 				return View(cardsList);

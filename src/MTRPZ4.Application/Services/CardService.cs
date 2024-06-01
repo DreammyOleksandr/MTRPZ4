@@ -22,10 +22,15 @@ namespace MTRPZ4.Application.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<CardDTO>> GetRandomCards()
+        public async Task<IEnumerable<CardDTO>> GetRandomCards(string? username)
         {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+
             var cards = new List<CardDTO>();
-            var random = new Random();
+            var random = new Random(username.GetHashCode());
             var tasks = new List<Task<CardDTO>>();
 
             for (int i = 0; i < _cardsCount; i++)
