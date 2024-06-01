@@ -22,19 +22,27 @@ namespace MTRPZ4.UI.Controllers
         }
         public async Task<IActionResult> Index()
         {
-			var user = await _userManager.GetUserAsync(User);
-
-			if (user is null || user.IfCompletedTest)
+			try
 			{
-				return RedirectToAction("Index", "Result");
-			}
-			else
-			{
-				IEnumerable<CardDTO> cards = await _cardService.GetRandomCards(_userManager.GetUserId(User));
-				List<CardDTO> cardsList = cards.ToList();
+                var user = await _userManager.GetUserAsync(User);
 
-				return View(cardsList);
+                if (user is null || user.IfCompletedTest)
+                {
+                    return RedirectToAction("Index", "Result");
+                }
+                else
+                {
+                    IEnumerable<CardDTO> cards = await _cardService.GetRandomCards(user.Id);
+                    List<CardDTO> cardsList = cards.ToList();
+
+                    return View(cardsList);
+                }
+            }
+			catch (Exception)
+			{
+				throw;
 			}
+			
 		}
 
 		[Route("Test/{ColorId}/{FontId}/{PriceId}")]
