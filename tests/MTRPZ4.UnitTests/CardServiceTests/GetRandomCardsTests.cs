@@ -15,29 +15,42 @@ namespace MTRPZ4.UnitTests.CardServiceTests
             _mockUnitOfWork = new Mock<IUnitOfWork>();
         }
 
-        [Fact]
-        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenColorIsNull()
+        [Theory]
+        [InlineData(null)]
+        public async Task GetRandomCards_ShouldThrowArgumentNullException_WhenUsernameIsNull(string? username)
         {
+            var cardService = new CardService(_mockUnitOfWork.Object);
+
+            await Assert.ThrowsAsync<ArgumentNullException>(() => cardService.GetRandomCards(username));
+        }
+
+        [Theory]
+        [InlineData("testuser")]
+        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenColorIsNull(string? username)
+        {
+
             _mockUnitOfWork.Setup(u => u.Colors.GetById(It.IsAny<int>())).ReturnsAsync((Color?)null);
 
             var cardService = new CardService(_mockUnitOfWork.Object);
 
-            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards());
+            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards(username));
         }
 
-        [Fact]
-        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenFontIsNull()
+        [Theory]
+        [InlineData("testuser")]
+        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenFontIsNull(string? username)
         {
             _mockUnitOfWork.Setup(u => u.Colors.GetById(It.IsAny<int>())).ReturnsAsync(new Color { Id = 1, Pigment = "Red" });
             _mockUnitOfWork.Setup(u => u.Fonts.GetById(It.IsAny<int>())).ReturnsAsync((Font?)null);
 
             var cardService = new CardService(_mockUnitOfWork.Object);
 
-            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards());
+            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards(username));
         }
 
-        [Fact]
-        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenPriceIsNull()
+        [Theory]
+        [InlineData("testuser")]
+        public async Task GetRandomCards_ShouldThrowInvalidOperationException_WhenPriceIsNull(string? username)
         {
             _mockUnitOfWork.Setup(u => u.Colors.GetById(It.IsAny<int>())).ReturnsAsync(new Color { Id = 1, Pigment = "Red" });
             _mockUnitOfWork.Setup(u => u.Fonts.GetById(It.IsAny<int>())).ReturnsAsync(new Font { Id = 1, Type = "Arial" });
@@ -45,11 +58,12 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
             var cardService = new CardService(_mockUnitOfWork.Object);
 
-            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards());
+            await Assert.ThrowsAsync<InvalidOperationException>(() => cardService.GetRandomCards(username));
         }
 
-        [Fact]
-        public async Task GetRandomCards_ShouldWorkFine_WhenAllIsCorrect()
+        [Theory]
+        [InlineData("testuser")]
+        public async Task GetRandomCards_ShouldWorkFine_WhenAllIsCorrect(string? username)
         {
             _mockUnitOfWork.Setup(u => u.Colors.GetById(It.IsAny<int>())).ReturnsAsync(new Color { Id = 1, Pigment = "Red" });
             _mockUnitOfWork.Setup(u => u.Fonts.GetById(It.IsAny<int>())).ReturnsAsync(new Font { Id = 1, Type = "Arial" });
@@ -57,7 +71,7 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
             var cardService = new CardService(_mockUnitOfWork.Object);
 
-            var result = await cardService.GetRandomCards();
+            var result = await cardService.GetRandomCards(username);
 
             Assert.NotNull(result);
             var cardsList = Assert.IsAssignableFrom<IEnumerable<CardDTO>>(result);

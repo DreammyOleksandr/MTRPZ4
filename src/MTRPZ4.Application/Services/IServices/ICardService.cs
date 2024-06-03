@@ -9,7 +9,7 @@ namespace MTRPZ4.Application.Services
 {
     public interface ICardService
     {
-        Task<IEnumerable<CardDTO>> GetRandomCards();
+        Task<IEnumerable<CardDTO>> GetRandomCards(string? username);
         Task SaveCardChoice(ChosedCardDTO? card);
     }
 }
