@@ -52,9 +52,9 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
 			var expectedValues = new List<List<string>>
 		{
-			new List<string> { "Times New Roman", "Blue", "Arial", "Red", "19,99", "9,99" },
+			new List<string> { "Times New Roman", "Blue", "Arial", "Red", Convert.ToString(19.99M), Convert.ToString(9.99) },
 			new List<string> { "Blue", "Red" },
-			new List<string> { "19,99", "9,99" },
+			new List<string> { Convert.ToString(19.99M), Convert.ToString(9.99) },
 			new List<string> { "Times New Roman", "Arial" }
 		};
 

@@ -53,8 +53,8 @@ namespace MTRPZ4.UnitTests.CardServiceTests
 
 			Assert.Contains(resultList, r => r.Value == "Red" && r.Count == 10);
 			Assert.Contains(resultList, r => r.Value == "Blue" && r.Count == 15);
-			Assert.Contains(resultList, r => r.Value == "9,99" && r.Count == 5);
-			Assert.Contains(resultList, r => r.Value == "19,99" && r.Count == 8);
+			Assert.Contains(resultList, r => r.Value == Convert.ToString(9.99) && r.Count == 5);
+			Assert.Contains(resultList, r => r.Value == Convert.ToString(19.99M) && r.Count == 8);
 			Assert.Contains(resultList, r => r.Value == "Arial" && r.Count == 12);
 			Assert.Contains(resultList, r => r.Value == "Times New Roman" && r.Count == 20);
 		}
