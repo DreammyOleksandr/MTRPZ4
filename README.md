@@ -18,7 +18,7 @@ MarketingAppTester is a .NET-based application designed for testing marketing ca
 ## Getting Started
 
 ### Building the Docker Image
-
+ 
 1. **Clone the repository**:
     ```sh
     git clone https://github.com/HlibPavlyk/marketing-app-tester.git
