@@ -1,6 +1,13 @@
+
 # MarketingAppTester
 
 MarketingAppTester is a .NET-based application designed for testing marketing campaigns and strategies. This application provides a robust platform for analyzing and optimizing marketing efforts.
+
+## Developed by
+
+- Hlib Pavlyk
+- Nazarii Horchynskyi
+- Oleksandr Bondarenko
 
 ## Technology Stack
 
